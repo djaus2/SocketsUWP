@@ -66,6 +66,7 @@ There is plenty of lattitude though as to what target build you use. The librray
 ## ToDos
 - Enable Cancellation of Socket IO.
 - Automatically esacpe command characters.
+- Create a **NuGet** package for the class library
 - Some refactoring of code, especially of common functionality between the client and server classes.
 
 ### Hint:
