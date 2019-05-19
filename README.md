@@ -15,7 +15,7 @@ The client and server class both contain methods for asynchronous sending and re
 String messages are are sent as lines using WriteLine and so the receiving end reads until the string is terminated by a new line (which is removed), using ReadLine. There is also a capability to send and receive chars as you might do in a command mode.
 Finally, there is a a mode to send and receive a buffer (as an array of chars). 
 
-The server starts in a listening mode. The client intiates. There is some handshaking where both end send some characters and the other end expects and receives certain characters. 
+The client and server need the same TCPIP port setting of course (set to default to 1234 in the Common class). The server starts in a listening mode. The client intiates. There is some handshaking where both end send some characters and the other end expects and receives certain characters. 
 The server only supports one connection at a time, as doe sthe client.
 
 The Client and Server classes use delegates to communicate back to the hosting app when data is received.
@@ -44,7 +44,9 @@ private void OnrecvText(string recvTxt)
 }
 ```
 
-
+#### NB:
+There are four characters reserved for commands which should not be the first character of any message. These are listed in the Common class.
+They should be esacaped in used in messages. Add to this list newline characters.
 
 # Target Platforms
 Windows 10 Desktop x64,x86, IoT-Core x64,x86 and ARM32, Windows Phone 10.
@@ -55,4 +57,10 @@ There is plenty of lattitude though as to what target build you use. The librray
 
 ## ToDos
 - Enable Cancellation of Socket IO.
+- Automatically esacpe command characters.
 - Some refactoring of code, especially of common functionality between the client and server classes.
+
+### Hint:
+I run the server on my desktop. 
+In my Broadband modem WAN settings at home, I direct the port to my dektop. 
+Then I can communicate with the server from my phone, laptop or IoT-Core device when connected to teh internet anywhere; subject to routing port restrictions in the mobile device's location.
