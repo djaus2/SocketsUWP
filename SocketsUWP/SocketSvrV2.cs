@@ -74,7 +74,7 @@ namespace SocketsUWP
                     {
                         if (localHostName.IPInformation.NetworkAdapter.NetworkAdapterId == id)
                         {
-                            tbSvrName = localHostName.ToString();
+                            HostIP = localHostName.ToString();
                             break;
                         }
                     }
@@ -90,10 +90,8 @@ namespace SocketsUWP
         // TCPIP Port used. Is set from  <see cref="Common"/> class but can be updated in app.
         public static string PortNumber { get;  set; } = "1234";
         //Ipaddress as deteremined in teh constructor
-        public string tbSvrName { get; private set; }
+        public string HostIP { get; private set; }
         
-        //???
-        public string recvdText { get; private set; }
 
         // StreamReader is created from connection and the code path to its use flows from that connection handler
         // <see cref="StreamSocketListener_ConnectionReceived"/>. 

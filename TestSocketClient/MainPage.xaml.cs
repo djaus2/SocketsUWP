@@ -113,7 +113,7 @@ namespace TestSocket_Svr
                             //socketSvr = new SocketServer();
                             SocketServerV2.PortNumber = tbPort.Text;
                             socketSvr = new SocketServerV2();
-                            tb1.Text = string.Format("{0}:{1}", socketSvr.tbSvrName, SocketServerV2.PortNumber);
+                            tb1.Text = string.Format("{0}:{1}", socketSvr.HostIP, SocketServerV2.PortNumber);
                             socketSvr.OnRecvdChar = OnRecvdChar;
                             socketSvr.OnRecvdText = OnrecvText;
                             socketSvr.StatusHandler.OnStatusMsgUpdate = OnStatusMsgUpdate;
