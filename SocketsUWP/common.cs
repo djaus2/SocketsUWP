@@ -22,7 +22,7 @@ namespace SocketsUWP
 
         //TCPIP Server Port
         public static string Port { get; private set; } = "1234";
-        public static string SvrHost { get; private set; } = "175.33.32.118";
+        public static string SvrHost { get; private set; } = "192.168.0.4";
 
 
         //The following are not used
