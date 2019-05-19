@@ -70,6 +70,12 @@ I run the server on my desktop.
 In my Broadband modem WAN settings at home, I direct the port to my dektop. 
 Then I can communicate with the server from my phone, laptop or IoT-Core device when connected to the internet anywhere; subject to routing port restrictions in the mobile device's location.
 
+*This can be a way also for getting around the UWP restriction of apps running on the same host can't communicate over TCPIP. They way you can start both apps simulataneously in Debug mode on the desktop and set teh IP of the host in the Clientto your Broadband WAN IP Address.*
+
+[Ref:](https://docs.microsoft.com/en-us/windows/uwp/networking/sockets)
+> [!NOTE]
+> As a consequence of [network isolation](https://msdn.microsoft.com/library/windows/apps/hh770532.aspx), Windows disallows establishing a socket connection (Sockets or WinSock) between two UWP apps running on the same machine; whether that's via the local loopback address (127.0.0.0), or by explicitly specifying the local IP address. For details about mechanisms by which UWP apps can communicate with one another, see [App-to-app communication](/windows/uwp/app-to-app/index).
+
 # Usage
 
 ## Server
