@@ -74,9 +74,13 @@ Then I can communicate with the server from my phone, laptop or IoT-Core device 
 
 [Ref:](https://docs.microsoft.com/en-us/windows/uwp/networking/sockets)
 > [!NOTE]
-> As a consequence of [network isolation](https://msdn.microsoft.com/library/windows/apps/hh770532.aspx), Windows disallows establishing a socket connection (Sockets or WinSock) between two UWP apps running on the same machine; whether that's via the local loopback address (127.0.0.0), or by explicitly specifying the local IP address. For details about mechanisms by which UWP apps can communicate with one another, see [App-to-app communication](/windows/uwp/app-to-app/index).
+> As a consequence of [network isolation](https://msdn.microsoft.com/library/windows/apps/hh770532.aspx), Windows disallows establishing a socket connection (Sockets or WinSock) between two UWP apps running on the same machine; whether that's via the local loopback address (127.0.0.0), or by explicitly specifying the local IP address. For details about mechanisms by which UWP apps can communicate with one another, 
+> see [App-to-app communication](https://docs.microsoft.com/en-us/windows/uwp/app-to-app/index).
+
+I also use an X64 Windows 10-IoT-Core device, running nearby my desktop as my second target during development
 
 # Usage
+Create a new UWP app project. Include the libabry in your app solution and refrence it. Add Internte/Network Capabilities to the app's Package.appmanifest. NB: For IoT-Core there is no need for IOT Extensions. for the Sockets.
 
 ## Server
 Instantiate the SocketSvr class. 
