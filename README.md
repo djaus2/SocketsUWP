@@ -2,7 +2,7 @@
 A High Level UWP TCPIP Sockets library for Socket Client and Server. Includes sample Client and Server apps.
 
 ## History
-*This project extends some of the code from my [SurfPad Project](https://github.com/djaus2/SurfPad) which provides for a UWP UI app running on a Windows 8/10 tablet running as a remote control for a Windows 10 IoT-Core device. Communication between the two has various transports as options using Bluetooth, USB and TCPIP Sockets. This project refactors the Sockets into a reusable library.*
+*This project extends some of the code from my [SurfPad Project](https://github.com/djaus2/SurfPad) which provides for a UWP UI app running on a Windows Surface running as a remote control for a Windows 10 IoT-Core device. Communication between the two has various transports as options using Bluetooth, USB and TCPIP Sockets. This project refactors the Sockets into a reusable library.*
 
 # About
 The project consists of 3 subprojects:
