@@ -19,6 +19,11 @@ The client and server need the same TCPIP port setting of course (set to default
 The server only supports one connection at a time, as doe sthe client.
 
 The Client and Server classes use delegates to communicate back to the hosting app when data is received.
+
+*In the class namespace:*
+```
+public delegate void ActionReceivedText(string recvTxt);
+```
 *In the class:*
 
 ```
@@ -63,4 +68,53 @@ There is plenty of lattitude though as to what target build you use. The librray
 ### Hint:
 I run the server on my desktop. 
 In my Broadband modem WAN settings at home, I direct the port to my dektop. 
-Then I can communicate with the server from my phone, laptop or IoT-Core device when connected to teh internet anywhere; subject to routing port restrictions in the mobile device's location.
+Then I can communicate with the server from my phone, laptop or IoT-Core device when connected to the internet anywhere; subject to routing port restrictions in the mobile device's location.
+
+# Usage
+
+## Server
+Instantiate the SocketSvr class. 
+Implment the **OnrecvText** method in the main app and assign it to the server instance *(Same for OnrecvBuffer)*.
+Use the following interface to it:
+```
+    public interface ISocketServerV2
+    {
+        string HostIP { get; }
+
+        // static string PortNumber { get; set; }
+
+        Task Action_Cmd(string command, string optionalParam = "");
+        Task SendBuffer(char[] request);
+        Task SendCh(char ch);
+    }
+```
+The main Client Action commands  are:
+- "Start Listening"
+- "Stop Listening"
+- "Send Line"
+- "Send Buffer"
+
+The Port needs to be set before starting the service. 
+It is a static property to the class enabling it to be set before the class is instatiated. The app can get and display its IP Address once the service is started.
+The last two commands require a suitable parameter.
+
+## Client
+Instantiate the SocketClient class. 
+Implment the **OnrecvText** method in the main app and assign it to the server instance. *(Same for OnrecvBuffer)*
+Use the following interface to it:
+```
+    public interface ISocketClientV2
+    {
+        string Host { get; set; }
+        string Port { get; set; }
+        Task Action_Cmd(string command, string optionalParam = "");
+    }
+```
+The main Client Action commands  are:
+- "Connect"
+- "Disconnect"
+- "Send Line"
+- "Send Buffer"
+
+The Host and Port need to be set before connecting. 
+The last two commands require a suitable parameter.
