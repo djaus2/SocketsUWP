@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="TestSocket_Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestSocket_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+    <RelativePanel >
+        <RelativePanel x:Name="Row0" Width="Auto">
+            <TextBlock x:Name="tb0" Text="Client" FontSize="20" FontWeight="Bold" Foreground="Purple" Width="Auto" Margin="10" />
+            <TextBlock x:Name="tb0_1" Text="Actions connection" FontStyle="Italic" Width="Auto" Margin="10"
+                       Foreground="Blue" RelativePanel.RightOf="tb0" RelativePanel.AlignBottomWith="tb0"/>
+        </RelativePanel>
+        <RelativePanel x:Name="Row0_1" RelativePanel.Below="Row0" >
+            <TextBlock x:Name="lbPort"  Text="Port:" TextAlignment="Right"  Margin="10"  Width="90" />
+            <TextBox x:Name="tbPort" Text="1234"  RelativePanel.RightOf="lbPort" Margin="10" RelativePanel.AlignTopWith="lbPort" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row1" Width="Auto" RelativePanel.Below="Row0_1">
+            <Button x:Name="BtnConnect"  Content="Connect" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBox x:Name="tbHost" Text="175.33.32.118"  RelativePanel.RightOf="BtnConnect" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnConnect" Width="Auto" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row2" RelativePanel.Below="Row1">
+            <Button x:Name="BtnSend"  Content="Send" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBox x:Name="tb2" Text="localhost" RelativePanel.RightOf="BtnSend" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnSend" Width="Auto"/>
+        </RelativePanel>
+        <RelativePanel x:Name="Row2_1" RelativePanel.Below="Row2">
+            <Button x:Name="BtnSendBinary"  Content="Buffer Send" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBox x:Name="tb2_1" Text="buffer" RelativePanel.RightOf="BtnSendBinary" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnSendBinary" AcceptsReturn="True" Width="Auto"/>
+        </RelativePanel>
+        <RelativePanel x:Name="Row3" RelativePanel.Below="Row2_1">
+            <TextBlock x:Name="BtnRecv"  Text="Status:" TextAlignment="Right"  Margin="10"  Width="90" />
+            <TextBlock x:Name="tb3" Text="localhost" RelativePanel.RightOf="BtnRecv" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnRecv" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row4" RelativePanel.Below="Row3">
+            <Button x:Name="BtDisconnect"  Content="Disconnect" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBlock x:Name="tb4" Text="localhost" RelativePanel.RightOf="BtDisconnect" Margin="10" RelativePanel.AlignVerticalCenterWith="BtDisconnect" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row5" RelativePanel.Below="Row4">
+            <Button x:Name="BtnExit"  Content="Exit" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBlock x:Name="tb5" Text="localhost" RelativePanel.RightOf="BtnExit" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnExit" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row5_1" RelativePanel.Below="Row5">
+            <Button x:Name="BtnStop"  Content="Stop" Click="Button_Click" Margin="10"  Width="90" />
+            <TextBlock x:Name="tb6_1" Text="" RelativePanel.RightOf="BtnStop" Margin="10" RelativePanel.AlignVerticalCenterWith="BtnStop" />
+        </RelativePanel>
+        <RelativePanel x:Name="Row6" RelativePanel.Below="Row5_1">
+            <TextBlock x:Name="BtnNone"  Text="Messages:" TextAlignment="Left" Margin="10,10,0,0"  Width="90" />
+            <TextBox x:Name="tb6" Text="Messages" RelativePanel.Below="BtnNone" Margin="10" AcceptsReturn="True" IsReadOnly="True" Width="300" BorderThickness="0" />
+        </RelativePanel>
+
+    </RelativePanel>
+</Page>
