@@ -18,13 +18,40 @@ Finally, there is a a mode to send and receive a buffer (as an array of chars).
 The server starts in a listening mode. The client intiates. There is some handshaking where both end send some characters and the other end expects and receives certain characters. 
 The server only supports one connection at a time, as doe sthe client.
 
+The Client and Server classes use delegates to communicate back to the hosting app when data is received.
+*In the class:*
+
+```
+ public ActionReceivedText OnRecvdText = null;
+
+//Having got a message:
+ OnRecvdText?.Invoke(response);
+```
+*In the app:*
+```
+socketSvr.OnRecvdText = OnrecvText;
+
+//The OnrecvText method:
+private void OnrecvText(string recvTxt)
+{
+    Task.Run(async () =>
+    {
+        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+        {
+            tb4.Text = recvTxt;
+        });
+    });
+}
+```
+
+
 
 # Target Platforms
 Windows 10 Desktop x64,x86, IoT-Core x64,x86 and ARM32, Windows Phone 10.
 
 ##### *NB:*
 *The Target Windows version is Creators Update (15063). That way the app can be deployed to Windows Phones.
-There is plenty of lattitude though as to what target build you use. The librray an app build need to match of course.*
+There is plenty of lattitude though as to what target build you use. The librray and app build need to match of course.*
 
 ## ToDos
 - Enable Cancellation of Socket IO.
